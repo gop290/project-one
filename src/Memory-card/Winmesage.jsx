@@ -1,10 +1,19 @@
-import React from "react";
+import Confetti from "react-confetti";
 
 export default function Winmesage({ moves }) {
   return (
-    <div className="win-message">
-      <h2>Congratulation! </h2>
-      <p>You complete the game in {moves} moves!</p>
-    </div>
+    <>
+      <Confetti
+        width={window.innerWidth}
+        height={window.innerHeight}
+        numberOfPieces={500}
+        recycle={true}
+      />
+
+      <div className="win-message">
+        <h2>Congratulations!</h2>
+        <p>You completed the game in {moves} moves!</p>
+      </div>
+    </>
   );
 }

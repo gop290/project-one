@@ -76,20 +76,25 @@ function App() {
     setFlippedCards(newFlippedCards);
     if (flippedCards.length === 1) {
       setIsLocked(true);
-      const firstCard = cards[flippedCards[0]];
+
+      const firstCard = cards.find((c) => c.id === flippedCards[0]);
+
       if (firstCard.value === card.value) {
         setTimeout(() => {
-          setMathedCards((...prev) => [...prev, firstCard.id, card.id]);
+          setMathedCards((prev) => [...prev, firstCard.id, card.id]);
+
           setScore((prev) => prev + 1);
+
           setCards((prev) =>
             prev.map((c) => {
               if (c.id === card.id || c.id === firstCard.id) {
                 return { ...c, isMatched: true };
-              } else {
-                return c;
               }
+
+              return c;
             }),
           );
+
           setFlippedCards([]);
           setIsLocked(false);
         }, 500);
