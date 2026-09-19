@@ -1,0 +1,47 @@
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+img{
+  width: 50%;
+}
+.board{
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  flex-direction: column;
+  animation: board 2s infinite;
+  background-color: black;
+}
+.Title{
+  color: rgb(244, 238, 255);
+}
+.Title::before{
+  content: "<";
+}
+.Title::after{
+  content: ">";
+}
+@keyframes board {
+  25%{
+    border-top-color:blue ;
+  }
+  50%{
+    border-left-color:red ;
+  }
+  75%{
+    border-right-color: greenyellow;
+  }
+  100%{
+    border-bottom-color:goldenrod ;
+  }
+
+}
+.profile{
+  display: flex;
+  color: white;
+}
